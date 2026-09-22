@@ -52,7 +52,7 @@ export default function DesafioAdaptacao({ publico }: Props) {
               devolve um feedback curto. Servir para treinar decisões de adaptação antes da aula.
             </p>
           </div>
-          <Botao variante="amarelo" onClick={sortear}>
+          <Botao variante="amarelo" onClick={sortear} className="w-full sm:w-auto">
             🎲 Sortear caso
           </Botao>
         </Card>
@@ -117,10 +117,10 @@ export default function DesafioAdaptacao({ publico }: Props) {
           </div>
 
           <div className="mt-5 flex flex-wrap gap-3">
-            <Botao variante="primario" onClick={sortear}>
+            <Botao variante="primario" onClick={sortear} className="w-full sm:w-auto">
               ↻ Sortear outro caso
             </Botao>
-            <Botao variante="fantasma" onClick={() => setEscolha(null)}>
+            <Botao variante="fantasma" onClick={() => setEscolha(null)} className="w-full sm:w-auto">
               {escolha !== null ? "Tentar novamente este caso" : "Limpar"}
             </Botao>
           </div>

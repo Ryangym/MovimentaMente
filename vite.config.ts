@@ -16,4 +16,9 @@ export default defineConfig({
       "@": path.resolve(__dirname, "src"),
     },
   },
+  server: {
+    // Permite responder em ambientes de pré-visualização (proxy) e no host local.
+    host: true,
+    allowedHosts: [".e2b.app"],
+  },
 });

@@ -123,7 +123,11 @@ export default function Formulario({ form, atualizar, onGerar, onVoltar }: Props
             </h3>
             <p className="mt-2 max-w-2xl text-sm text-ink-soft">{publico.delimitacao}</p>
           </div>
-          <Botao variante="secundario" onClick={onVoltar} className="nao-imprimir">
+          <Botao
+            variante="secundario"
+            onClick={onVoltar}
+            className="nao-imprimir w-full sm:w-auto"
+          >
             Trocar público
           </Botao>
         </div>
@@ -295,10 +299,10 @@ export default function Formulario({ form, atualizar, onGerar, onVoltar }: Props
       </Card>
 
       <div className="nao-imprimir flex flex-wrap items-center gap-3">
-        <Botao type="submit" variante="amarelo" className="px-7 text-lg">
+        <Botao type="submit" variante="amarelo" className="w-full px-7 text-lg sm:w-auto">
           ▸ Gerar plano de atividade
         </Botao>
-        <Botao variante="secundario" onClick={onVoltar}>
+        <Botao variante="secundario" onClick={onVoltar} className="w-full sm:w-auto">
           Voltar à escolha de público
         </Botao>
         <p className="text-sm text-ink-soft">
