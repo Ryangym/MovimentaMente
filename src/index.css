@@ -1,0 +1,170 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Segoe UI", "Inter", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+
+  --color-ink: #0d2b38;
+  --color-ink-soft: #42626f;
+
+  --color-petroleo-50: #eff7f8;
+  --color-petroleo-100: #d8ecef;
+  --color-petroleo-200: #aed8de;
+  --color-petroleo-300: #78bcc6;
+  --color-petroleo-400: #3f9da8;
+  --color-petroleo-500: #1d818c;
+  --color-petroleo-600: #0f6b73;
+  --color-petroleo-700: #0c5560;
+  --color-petroleo-800: #0a434c;
+  --color-petroleo-900: #072e35;
+
+  --color-amarelo: #f5b700;
+  --color-amarelo-suave: #fff3cf;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 100%;
+}
+
+html[data-fontsize="medio"] {
+  font-size: 112.5%;
+}
+
+html[data-fontsize="grande"] {
+  font-size: 127%;
+}
+
+body {
+  background-color: #f4f7f8;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Foco visível ---------- */
+button:focus-visible,
+a:focus-visible,
+select:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 4px solid var(--color-amarelo);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ---------- Utilitários ---------- */
+.saltar-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 60;
+}
+
+.saltar-link:focus {
+  left: 12px;
+  top: 12px;
+  padding: 12px 20px;
+  background: #fff;
+  border: 3px solid var(--color-petroleo-600);
+}
+
+.sombra-suave {
+  box-shadow: 0 1px 2px rgba(13, 43, 56, 0.05), 0 10px 30px -18px rgba(13, 43, 56, 0.35);
+}
+
+.riscado-detalhe {
+  background-image: linear-gradient(
+    90deg,
+    var(--color-petroleo-200) 0 8px,
+    transparent 8px 16px
+  );
+  background-size: 16px 4px;
+  background-repeat: repeat-x;
+}
+
+.somente-impressao {
+  display: none;
+}
+
+.animar-entrada {
+  animation: aparecer 0.35s ease-out both;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------- Movimento reduzido ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+html[data-movimento="reduzido"] *,
+html[data-movimento="reduzido"] *::before,
+html[data-movimento="reduzido"] *::after {
+  scroll-behavior: auto !important;
+  animation: none !important;
+  transition: none !important;
+}
+
+/* ---------- Impressão ---------- */
+@media print {
+  @page {
+    margin: 14mm;
+  }
+
+  .nao-imprimir,
+  header.site-topo,
+  footer.site-rodape,
+  nav.navegacao,
+  #inicio,
+  #planejador,
+  #fundamentacao,
+  #cuidados,
+  #desafio {
+    display: none !important;
+  }
+
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 11pt;
+  }
+
+  #resultado {
+    display: block !important;
+  }
+
+  .quebrar-pagina {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .somente-impressao {
+    display: block !important;
+  }
+
+  a[href]::after {
+    content: "";
+  }
+}
