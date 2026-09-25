@@ -107,6 +107,22 @@ textarea:focus-visible,
   }
 }
 
+/* Painel do menu hamburguer */
+.animar-menu {
+  animation: abrir-menu 0.22s ease-out both;
+}
+
+@keyframes abrir-menu {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 /* ---------- Movimento reduzido ---------- */
 @media (prefers-reduced-motion: reduce) {
   *,

@@ -365,16 +365,16 @@ export default function PlanoGerado({ plano, onGerarNovamente, onEditar, onAbrir
 
       {/* Ações */}
       <div className="nao-imprimir flex flex-wrap gap-3">
-        <Botao variante="primario" onClick={onGerarNovamente}>
+        <Botao variante="primario" onClick={onGerarNovamente} className="w-full sm:w-auto">
           ↻ Gerar novamente
         </Botao>
-        <Botao variante="amarelo" onClick={() => window.print()}>
+        <Botao variante="amarelo" onClick={() => window.print()} className="w-full sm:w-auto">
           🖨 Imprimir ou salvar em PDF
         </Botao>
-        <Botao variante="secundario" onClick={onAbrirDesafio}>
+        <Botao variante="secundario" onClick={onAbrirDesafio} className="w-full sm:w-auto">
           🎲 Sortear desafio de adaptação
         </Botao>
-        <Botao variante="secundario" onClick={onEditar}>
+        <Botao variante="secundario" onClick={onEditar} className="w-full sm:w-auto">
           ✎ Ajustar o planejamento
         </Botao>
       </div>
